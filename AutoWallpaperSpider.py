@@ -37,7 +37,7 @@ class AutoWallpaperSpider:
             if os.path.isdir(drive_name):
                 drive_list.append(drive_name)
         # 创建保存路径
-        self.wallpaper_dir = "%s\\Program Files\\auto_wallpaper\\" % drive_list[1]  # 第二个盘中创建路径
+        self.wallpaper_dir = "%s\\Program Files\\AutoWallpaper\\" % drive_list[1]  # 第二个盘中创建路径
         try:
             os.makedirs(self.wallpaper_dir)
         except Exception as e:
