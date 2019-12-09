@@ -45,7 +45,7 @@ class AutoWallpaperSpider:
 
     def download_img(self):
         """下载图片"""
-        img_content = requests.get(self.img_url)
+        img_content = requests.get(self.img_url, timeout=20)
         self.wallpaper_path = self.wallpaper_dir + self.img_name
         with open(self.wallpaper_path, 'wb') as fw:
             fw.write(img_content.content)
