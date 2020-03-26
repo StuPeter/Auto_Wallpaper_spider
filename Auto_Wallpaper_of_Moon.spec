@@ -29,4 +29,4 @@ exe = EXE(pyz,
           strip=False,
           upx=True,
           runtime_tmpdir=None,
-          console=True , version='F:\\Users\\QQT\\Documents\\Python Projects\\Auto_Wallpaper_spider\\version_file_moon.txt', icon='F:\\Users\\QQT\\Documents\\Python Projects\\Auto_Wallpaper_spider\\icon\\moon.ico')
+          console=False , version='F:\\Users\\QQT\\Documents\\Python Projects\\Auto_Wallpaper_spider\\version_file_moon.txt', icon='F:\\Users\\QQT\\Documents\\Python Projects\\Auto_Wallpaper_spider\\icon\\moon.ico')

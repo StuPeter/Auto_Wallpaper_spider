@@ -1,6 +1,6 @@
 ('F:\\Users\\QQT\\Documents\\Python '
  'Projects\\Auto_Wallpaper_spider\\dist\\Auto_Wallpaper_of_Moon.exe',
- True,
+ False,
  False,
  False,
  'F:\\Users\\QQT\\Documents\\Python '
@@ -223,7 +223,7 @@
  [],
  False,
  False,
- 1585207713,
- [('run.exe',
-   'g:\\programdata\\anaconda3\\envs\\pyqt-dev\\lib\\site-packages\\PyInstaller\\bootloader\\Windows-64bit\\run.exe',
+ 1585208946,
+ [('runw.exe',
+   'g:\\programdata\\anaconda3\\envs\\pyqt-dev\\lib\\site-packages\\PyInstaller\\bootloader\\Windows-64bit\\runw.exe',
    'EXECUTABLE')])
