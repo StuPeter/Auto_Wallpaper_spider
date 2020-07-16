@@ -13,6 +13,7 @@ import win32api
 import win32con
 import win32gui
 import requests
+import datetime
 import os
 
 
@@ -49,7 +50,10 @@ class AutoWallpaperSpider:
         self.wallpaper_path = self.wallpaper_dir + self.img_name
         with open(self.wallpaper_path, 'wb') as fw:
             fw.write(img_content.content)
-        print("%s  图片下载成功..." % self.wallpaper_path)
+        with open(self.wallpaper_dir + "log.log", 'a') as fw:
+            fw.write(
+                "[" + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S") + "] %s  图片下载成功...\n" % self.wallpaper_path)
+        print("[" + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S") + "] %s  图片下载成功..." % self.wallpaper_path)
 
     def fill_img(self):
         """合成图片"""
@@ -61,7 +65,10 @@ class AutoWallpaperSpider:
             fill_img_content.paste(img_content,
                                    (int(monitor_width / 2 - img_width / 2), int(monitor_height / 2 - img_height / 2)))
             fill_img_content.save(self.wallpaper_path)
-            print("%s  图片合成成功..." % self.wallpaper_path)
+            with open(self.wallpaper_dir + "log.log", 'a') as fw:
+                fw.write("[" + datetime.datetime.now().strftime(
+                    "%Y-%m-%d %H:%M:%S") + "] %s  图片合成成功...\n" % self.wallpaper_path)
+            print("[" + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S") + "] %s  图片合成成功..." % self.wallpaper_path)
         else:
             pass
 
