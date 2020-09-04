@@ -21,7 +21,7 @@ def main():
     delat_utc_today_list[-1] = "0"
     delat_utc_today = "".join(delat_utc_today_list)
     # 整合为链接 格式为：http://himawari8-dl.nict.go.jp/himawari8/img/D531106/1d/550/2018/09/25/065000_0_0.png
-    img_url = "http://himawari8-dl.nict.go.jp/himawari8/img/D531106/1d/550/" + delat_utc_today + "00_0_0.png"
+    img_url = "https://himawari8-dl.nict.go.jp/himawari8/img/D531106/1d/550/" + delat_utc_today + "00_0_0.png"
     auto_wallpaper = AutoWallpaperSpider(img_url=img_url, img_name="earth.jpg", img_fill=True)
     auto_wallpaper.auto_main()
 
