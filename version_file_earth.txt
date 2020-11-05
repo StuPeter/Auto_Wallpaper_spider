@@ -29,12 +29,12 @@ VSVersionInfo(
         u'040904B0',
         [StringStruct(u'CompanyName', u'圈圈烃'),
         StringStruct(u'FileDescription', u'自动获取最新的向日葵8号卫星图片作为背景，只需双击运行即可。如有问题，欢迎访问“https://space.bilibili.com/330626607”。--圈圈烃--19.3.1'),
-        StringStruct(u'FileVersion', u'1.0.0.1'),
+        StringStruct(u'FileVersion', u'1.0.0.4'),
         StringStruct(u'InternalName', u'Auto-earth-desktop'),
         StringStruct(u'LegalCopyright', u'https://space.bilibili.com/330626607'),
         StringStruct(u'OriginalFilename', u'Auto-earth-desktop.Exe'),
         StringStruct(u'ProductName', u'Auto-earth-desktop'),
-        StringStruct(u'ProductVersion', u'1.0.0.1')])
+        StringStruct(u'ProductVersion', u'1.0.0.4')])
       ]),
     VarFileInfo([VarStruct(u'Translation', [1033, 1200])])
   ]

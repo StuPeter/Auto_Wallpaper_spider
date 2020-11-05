@@ -160,3 +160,8 @@ thumbnail/  | 布吉岛
 ![](https://i.imgur.com/2UZxXWT.gif)
 
 希望对大家有所帮助！：-）
+
+## 补充
+
+项目打包命令：
+ `pyinstaller Auto_Wallpaper_of_Earth.py -w -i "F:\Users\QQT\Documents\Python Projects\Auto_Wallpaper_spider\icon\earth.ico" --version-file version_file_earth.txt -F`
