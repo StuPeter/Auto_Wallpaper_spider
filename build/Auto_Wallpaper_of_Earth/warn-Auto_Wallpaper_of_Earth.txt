@@ -58,7 +58,7 @@ missing module named 'OpenSSL.crypto' - imported by urllib3.contrib.pyopenssl (d
 missing module named 'cryptography.x509' - imported by urllib3.contrib.pyopenssl (delayed, optional)
 missing module named 'cryptography.hazmat' - imported by urllib3.contrib.pyopenssl (top-level)
 missing module named OpenSSL - imported by urllib3.contrib.pyopenssl (top-level)
-missing module named olefile - imported by PIL.FpxImagePlugin (top-level), PIL.MicImagePlugin (top-level)
+missing module named olefile - imported by PIL.MicImagePlugin (top-level), PIL.FpxImagePlugin (top-level)
 missing module named 'PySide2.QtGui' - imported by PIL.ImageQt (conditional, optional)
 missing module named PySide2 - imported by PIL.ImageQt (conditional, optional)
 missing module named 'PyQt5.QtGui' - imported by PIL.ImageQt (conditional, optional)

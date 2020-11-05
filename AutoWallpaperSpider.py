@@ -46,14 +46,19 @@ class AutoWallpaperSpider:
 
     def download_img(self):
         """下载图片"""
-        img_content = requests.get(self.img_url, timeout=20, verify=False)
-        self.wallpaper_path = self.wallpaper_dir + self.img_name
-        with open(self.wallpaper_path, 'wb') as fw:
-            fw.write(img_content.content)
-        with open(self.wallpaper_dir + "log.log", 'a') as fw:
-            fw.write(
-                "[" + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S") + "] %s  图片下载成功...\n" % self.wallpaper_path)
-        print("[" + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S") + "] %s  图片下载成功..." % self.wallpaper_path)
+        try:
+            self.wallpaper_path = self.wallpaper_dir + self.img_name
+            img_content = requests.get(self.img_url, timeout=20, verify=False)
+            with open(self.wallpaper_path, 'wb') as fw:
+                fw.write(img_content.content)
+            with open(self.wallpaper_dir + "log.log", 'a') as fw:
+                fw.write("[" + datetime.datetime.now().strftime(
+                    "%Y-%m-%d %H:%M:%S") + "] %s  图片下载成功...\n" % self.wallpaper_path)
+            print("[" + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S") + "] %s  图片下载成功..." % self.wallpaper_path)
+        except Exception as e:
+            with open(self.wallpaper_dir + "log.log", 'a') as fw:
+                fw.write("[" + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S") + "] error: %s  \n" % e)
+            os._exit(1)
 
     def fill_img(self):
         """合成图片"""
