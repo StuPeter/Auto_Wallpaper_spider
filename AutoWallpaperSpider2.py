@@ -65,7 +65,7 @@ class AutoWallpaperSpider2:
                     fw.write("[" + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S") + "] error: %s  \n" % e)
                 os._exit(1)
         # 合成大图
-        img_row = 3
+        img_row = 4
         img_col = 4
         img_width = 550 * img_col
         img_height = 550 * img_row

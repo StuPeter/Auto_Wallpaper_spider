@@ -22,7 +22,7 @@ def main():
     delat_utc_today = "".join(delat_utc_today_list)
     # 生成链接 格式为：https://himawari8.nict.go.jp/img/D531106/4d/550/2023/08/03/020000_0_0.png, 其中4d表示图片为4*4，2d为2*2,左上角图片为0_0
     img_urls = []
-    for x in range(3):
+    for x in range(4):
         for y in range(4):
             base_url = 'https://himawari8.nict.go.jp/img/D531106/4d/550/%s00_%s_%s.png' % (delat_utc_today, y, x)
             # base_url = 'https://himawari8.nict.go.jp/img/D531106/4d/550/2023/08/03/023000_%s_%s.png' % (y, x)
