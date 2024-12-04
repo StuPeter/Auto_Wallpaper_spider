@@ -8,7 +8,7 @@
 # @Description: 向日葵8号卫星图片下载 http://himawari8.nict.go.jp/ 多图拼接高清版本
 #
 #
-from AutoWallpaperSpider2 import AutoWallpaperSpider2
+from AutoWallpaperSpider3 import AutoWallpaperSpider
 import datetime
 
 
@@ -28,8 +28,8 @@ def main():
             # base_url = 'https://himawari8.nict.go.jp/img/D531106/4d/550/2023/08/03/023000_%s_%s.png' % (y, x)
             print(base_url)
             img_urls.append(base_url)
-    auto_wallpaper = AutoWallpaperSpider2(img_urls=img_urls, img_name="earth2.jpg", img_fill=False)
-    auto_wallpaper.auto_main()
+    auto_wallpaper = AutoWallpaperSpider(img_urls=img_urls, img_name="earth2.jpg", img_fill=False)
+    auto_wallpaper.run()
 
 
 if __name__ == '__main__':

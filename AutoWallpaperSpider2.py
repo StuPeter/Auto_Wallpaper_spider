@@ -8,13 +8,15 @@
 # @Description:
 #
 #
+import os
+import time
+import datetime
+import requests
+from typing import List, Union
 from PIL import Image
 import win32api
 import win32con
 import win32gui
-import requests
-import datetime
-import os
 
 
 class AutoWallpaperSpider2:
@@ -46,25 +48,36 @@ class AutoWallpaperSpider2:
             print(e)
 
     def download_img(self):
-        """下载并合成图片"""
-        # 下载图片
+        """下载图片"""
         for index, img_url in enumerate(self.img_urls):
-            try:
-                temp_path = self.wallpaper_dir + self.img_name.replace('.', '_%s.' % index)
-                self.wallpaper_paths.append(temp_path)
-                img_content = requests.get(img_url, timeout=20, verify=False)
-                with open(temp_path, 'wb') as fw:
-                    fw.write(img_content.content)
-                with open(self.wallpaper_dir + "log.log", 'a') as fw:
-                    fw.write("[" + datetime.datetime.now().strftime(
-                        "%Y-%m-%d %H:%M:%S") + "] %s  图片下载成功...\n" % temp_path)
-                print("[" + datetime.datetime.now().strftime(
-                    "%Y-%m-%d %H:%M:%S") + "] %s  图片下载成功..." % temp_path)
-            except Exception as e:
-                with open(self.wallpaper_dir + "log.log", 'a') as fw:
-                    fw.write("[" + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S") + "] error: %s  \n" % e)
-                os._exit(1)
-        # 合成大图
+            attempt = 0
+            success = False
+            temp_path = self.wallpaper_dir + self.img_name.replace('.', '_%s.' % index)
+            self.wallpaper_paths.append(temp_path)
+            while attempt < 3 and not success:
+                try:
+                    img_content = requests.get(img_url, timeout=20, verify=False)
+                    with open(temp_path, 'wb') as fw:
+                        fw.write(img_content.content)
+                    with open(self.wallpaper_dir + "log.log", 'a') as fw:
+                        fw.write("[" + datetime.datetime.now().strftime(
+                            "%Y-%m-%d %H:%M:%S") + "] %s  图片下载成功...\n" % temp_path)
+                    print("[" + datetime.datetime.now().strftime(
+                        "%Y-%m-%d %H:%M:%S") + "] %s  图片下载成功..." % temp_path)
+                    success = True  # 成功后退出重试循环
+                except Exception as e:
+                    attempt += 1
+                    print(f"尝试 {attempt}/3 下载失败: {e}")
+                    with open(self.wallpaper_dir + "log.log", 'a') as fw:
+                        fw.write("[" + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S") + "] error: %s  \n" % e)
+                    if attempt < 3:
+                        time.sleep(2)  # 等待 2 秒后重试
+                    else:
+                        print(f"最终失败: {img_url}")
+                        os._exit(1)  # 退出程序
+
+    def merge_img(self):
+        """合成图片"""
         img_row = 4
         img_col = 4
         img_width = 550 * img_col
@@ -107,6 +120,7 @@ class AutoWallpaperSpider2:
         """主函数"""
         self.check_drive()
         self.download_img()
+        self.merge_img()
         self.fill_img()
         self.set_desktop()
 
