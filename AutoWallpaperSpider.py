@@ -94,6 +94,14 @@ class AutoWallpaperSpider:
 
 if __name__ == '__main__':
     # 测试例子
-    url = "https://cn.bing.com/az/hprichbg/rb/HZMB_ZH-CN5238831909_1920x1080.jpg"
-    auto_wallpaper = AutoWallpaperSpider(img_url=url, img_name="moon.jpg", img_fill=True)
-    auto_wallpaper.auto_main()
+    # url = "https://cn.bing.com/az/hprichbg/rb/HZMB_ZH-CN5238831909_1920x1080.jpg"
+    # auto_wallpaper = AutoWallpaperSpider(img_url=url, img_name="moon.jpg", img_fill=True)
+    # auto_wallpaper.auto_main()
+
+    img_content = Image.open(r'F:\Users\QQT\Downloads\moon.8168.jpg')
+    img_width, img_height = img_content.size  # 图片大小
+    monitor_width, monitor_height = win32api.GetSystemMetrics(0), win32api.GetSystemMetrics(1)  # 电脑屏幕大小
+    fill_img_content = Image.new(img_content.mode, (monitor_width, monitor_height), color='black')
+    fill_img_content.paste(img_content,
+                           (int(monitor_width / 2 - img_width / 2), int(monitor_height / 2 - img_height / 2)))
+    fill_img_content.save(r'F:\Users\QQT\Downloads\earth3.jpg')
